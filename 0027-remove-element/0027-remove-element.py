@@ -7,15 +7,15 @@ class Solution(object):
         """
         count = 0
         for i in range(len(nums)):
-            if (nums[i] == val): # i = 2
+            if (nums[i] == val):
                 j = i + 1
-                if (j < len(nums)): # j = 3 < 4
-                    while ((j < len(nums)) and (nums[j] == nums[i])):
+                if (j < len(nums)):
+                    while ((j < len(nums)) and (nums[j] == nums[i])): 
                         j += 1
-                if j < len(nums) and (nums[j] != nums[i]):
+                if j < len(nums) and (nums[j] != nums[i]): # case: when val == val, don't run
                     temp = nums[j]
                     nums[j] = nums[i]
-                    nums[i] = temp # [2,3,2,3] [2,2,3,3] 
+                    nums[i] = temp 
                     count += 1
             else:
                 count += 1
