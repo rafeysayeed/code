@@ -31,6 +31,6 @@ class Solution(object):
                         flowerbed[i] = 1
                         n -= 1
             print(n)
-        if n <= 0:
+        if n <= 0: # can ask for planting less than available spots, n can be < 0
             return True
         return False
