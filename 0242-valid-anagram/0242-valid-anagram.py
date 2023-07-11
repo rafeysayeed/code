@@ -15,8 +15,8 @@ class Solution(object):
         #     return False
         # return True
 
-        x, y = sorted(s), sorted(t)
-        return x == y
+        # x, y = sorted(s), sorted(t)
+        # return x == y
 
         # hashmap = defaultdict(int)
         # for i in s:
@@ -27,3 +27,13 @@ class Solution(object):
         #     if v != 0:
         #         return False
         # return True
+
+        if len(s) != len(t):
+            return False
+        memo = {}
+        for i in s:
+            if i not in memo:
+                if s.count(i) != t.count(i):
+                    return False
+                memo[i] = None
+        return True
