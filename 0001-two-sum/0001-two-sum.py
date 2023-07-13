@@ -18,3 +18,16 @@ class Solution(object):
             if diff in prevMap:
                 return [prevMap[diff], i]
             prevMap[n] = i
+
+        # This approach is not correct because it will change the indexes to return
+        # nums = sorted(nums)
+        # left = 0
+        # right = len(nums) - 1
+        # while left < right:
+        #     sum = nums[left] + nums[right]
+        #     if sum == target:
+        #         return [left, right]
+        #     elif sum > target:
+        #         right -= 1
+        #     else:
+        #         left += 1
