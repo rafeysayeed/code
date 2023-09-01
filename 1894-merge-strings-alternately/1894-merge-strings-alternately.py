@@ -5,10 +5,16 @@ class Solution(object):
         :type word2: str
         :rtype: str
         """
-        l1, l2, ret = len(word1), len(word2), ""
-        for i in range (max(l1, l2)):
-            if (i < l1):
-                ret += word1[i]
-            if (i < l2):
-                ret += word2[i]
-        return ret
+        l1 = len(word1)
+        l2 = len(word2)
+        c1 = 0
+        c2 = 0
+        merged = ""
+        while c1 != l1 or c2 != l2:
+            if c1 < l1:
+                merged += word1[c1]
+                c1 += 1
+            if c2 < l2:
+                merged += word2[c2]
+                c2 += 1
+        return merged
