@@ -8,5 +8,5 @@ class Solution(object):
         while n > 0:
             if n % 2:
                 count += 1
-            n >>= 1
+            n //= 2
         return count
