@@ -6,7 +6,6 @@ class Solution(object):
         :rtype: List[int]
         """
         newArr = []
-        i = 0
         for i in range(n):
             newArr.append(nums[i])
             newArr.append(nums[i+n])
