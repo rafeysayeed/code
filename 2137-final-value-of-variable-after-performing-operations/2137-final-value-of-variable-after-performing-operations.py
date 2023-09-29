@@ -4,14 +4,20 @@ class Solution(object):
         :type operations: List[str]
         :rtype: int
         """
-        # Copied
+        # Copied 2
         x = 0
         for i in operations:
-            if i[1] == "-":
-                x -= 1
-            else:
-                x += 1
+            x += 44 - ord(i[1])
         return x
+
+        # Copied 1
+        # x = 0
+        # for i in operations:
+        #     if i[1] == "-":
+        #         x -= 1
+        #     else:
+        #         x += 1
+        # return x
 
         # My solution
         # x = 0
