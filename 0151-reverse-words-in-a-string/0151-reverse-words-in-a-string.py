@@ -15,4 +15,7 @@ class Solution(object):
                 newStr += " "
             else:
                 tick -= 1
-        return newStr.strip(" ")
+        s = ""
+        for i in range(len(newStr)-1):
+            s += newStr[i]
+        return s
