@@ -4,5 +4,8 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s = ''.join(filter(lambda x: x.isalpha() or x.isdigit(), s)).lower()
-        return s == s[::-1]
+        refinedString = ""
+        for i in s:
+            if i.isalnum():
+                refinedString += i.lower()
+        return refinedString == refinedString[::-1]
