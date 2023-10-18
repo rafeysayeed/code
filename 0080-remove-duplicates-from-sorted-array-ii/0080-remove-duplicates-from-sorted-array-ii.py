@@ -12,20 +12,52 @@ class Solution(object):
         test cases
         [0,0,1]
         """
-
         i = 0
-        while i < len(nums):
-            print(nums)
-            currentElement = nums[i]
-            count = 0
-            while i < len(nums) and nums[i] == currentElement:
-                count += 1
+        for e in nums:
+            if i == 0 or i == 1 or nums[i-2] != e:
+                nums[i] = e
                 i += 1
-            if count > 2:
-                checkpoint = i
-                i = i - count + 2
-                nums[i:] = nums[checkpoint:]
-            # print(nums, count, checkpoint, i)
+        return i
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # i = 0
+        # while i < len(nums):
+        #     print(nums)
+        #     currentElement = nums[i]
+        #     count = 0
+        #     while i < len(nums) and nums[i] == currentElement:
+        #         count += 1
+        #         i += 1
+        #     if count > 2:
+        #         checkpoint = i
+        #         i = i - count + 2
+        #         nums[i:] = nums[checkpoint:]
+        #     # print(nums, count, checkpoint, i)
 
         # i = 0
         # k = 0
