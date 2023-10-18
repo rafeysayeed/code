@@ -5,18 +5,21 @@ class Solution(object):
         :type val: int
         :rtype: int
         """
-        count = 0
-        for i in range(len(nums)):
-            if (nums[i] == val):
-                j = i + 1
-                if (j < len(nums)):
-                    while ((j < len(nums)) and (nums[j] == nums[i])): 
-                        j += 1
-                if j < len(nums) and (nums[j] != nums[i]): # case: when val == val, don't run
-                    temp = nums[j]
-                    nums[j] = nums[i]
-                    nums[i] = temp 
-                    count += 1
-            else:
-                count += 1
-        return count
+        # i = 0
+        # while i < len(nums):
+        #     if nums[i] == val:
+        #         nums.pop(i)
+        #     i += 1
+        # return len(nums)
+
+        # edge cases: [], [1]val=1->[], [3,3]val=3->[], [2,2]val=1, [2]val=1
+        left = 0
+        right = len(nums) - 1
+        while left <= right:
+            while left < len(nums) and nums[left] != val:
+                left += 1
+            while right >= 0 and nums[right] == val:
+                right -= 1
+            if left < right:
+                nums[left], nums[right] = nums[right], nums[left]
+        return left if len(nums) else 0
