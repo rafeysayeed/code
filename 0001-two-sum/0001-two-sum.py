@@ -5,10 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        hash1 = {}
+        hashm = {}
         for i in range(len(nums)):
             diff = target - nums[i]
-            if diff in hash1.keys():
-                return [i, hash1[diff]]
-            else:                
-                hash1[nums[i]] = i
+            if diff in hashm:
+                return [hashm[diff], i]
+            else:
+                hashm[nums[i]] = i
