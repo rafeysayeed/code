@@ -7,8 +7,10 @@ class Solution {
      */
     function mergeAlternately($word1, $word2) {
         $rs="";
-        $l1=strlen($word1);
-        $l2=strlen($word2);
+        $s1=$word1;
+        $s2=$word2;
+        $l1=strlen($s1);
+        $l2=strlen($s2);
         $min=max($l1,$l2);
         for($i=0;$i<$min;$i++){
             if($i<$l1)
