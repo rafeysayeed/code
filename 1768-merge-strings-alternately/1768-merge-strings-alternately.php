@@ -6,7 +6,7 @@ class Solution {
      * @return String
      */
     function mergeAlternately($word1, $word2) {
-        $rs="";
+        $rs='';
         $s1=$word1;
         $s2=$word2;
         $l1=strlen($s1);
