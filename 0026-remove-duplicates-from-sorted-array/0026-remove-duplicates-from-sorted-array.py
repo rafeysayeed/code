@@ -5,25 +5,27 @@ class Solution(object):
         :rtype: int
         [1,1,1] -> [1]
         """
-        arr = []
-        i = 1
-        while (i < len(nums)):
-            if nums[i] == nums[i-1]:
-                arr += [nums.pop(i)]
-            else:
-                i += 1
-        k = len(nums)
-        for i in range(len(arr)):
-            nums += [arr[i]]
-        return k
+
+        # Linked List Solution
+        # arr = []
+        # i = 1
+        # while (i < len(nums)):
+        #     if nums[i] == nums[i-1]:
+        #         arr += [nums.pop(i)]
+        #     else:
+        #         i += 1
+        # k = len(nums)
+        # for i in range(len(arr)):
+        #     nums += [arr[i]]
+        # return k
             
 
-        # i = 0
-        # for j in range(1, len(nums)):
-        #     if nums[i] != nums[j]: # ← indicates unique element
-        #         i += 1
-        #         nums[i] = nums[j]
-        # return i + 1
+        i = 0
+        for j in range(1, len(nums)):
+            if nums[i] != nums[j]: # ← indicates unique element
+                i += 1
+                nums[i] = nums[j]
+        return i + 1
 
 
         # # My Sol
