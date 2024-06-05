@@ -1,37 +1,44 @@
 class MinStack(object):
+    class Node():
+        def __init__(self, val, next, minE):
+            self.val = val
+            self.next = next
+            self.minE = minE
 
     def __init__(self):
-        self.min_stack = []
+        self.head = None
 
     def push(self, val):
         """
         :type val: int
         :rtype: None
         """
-        if not self.min_stack:
-            self.min_stack.append([val,val])
-            return
-        min_ele = self.min_stack[-1][1]
-        self.min_stack.append([val,min(val,min_ele)])
+        if self.head is None:
+            self.head = self.Node(val, None, val)
+        else:
+            self.head = self.Node(val, self.head, min(self.head.val, val))
 
     def pop(self):
         """
         :rtype: None
         """
-        self.min_stack.pop()
+        temp = self.head
+        self.head = self.head.next
+        temp = None
+        
 
     def top(self):
         """
         :rtype: int
         """
-        return self.min_stack[-1][0]
+        return self.head.val
+        
 
     def getMin(self):
         """
         :rtype: int
         """
-        return self.min_stack[-1][1]
-        
+        return self.head.minE
 
 
 # Your MinStack object will be instantiated and called as such:
