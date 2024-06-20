@@ -3,27 +3,34 @@ class Solution(object):
         """
         :type nums: List[int]
         :rtype: List[int]
+        [a b c d]
+        [bcd acd abd abc]
+        [a ab abc abcd]
+        [abcd bcd cd d]
+        [1 a ab abc] - pre
+        [bcd cd d 1]
         """
-        # ret = []
+        # bruteforce O(n^2)
+        # answer = []
         # for i in range(len(nums)):
-        #     multiply = 1
+        #     carry = 1
         #     for j in range(len(nums)):
         #         if j == i:
         #             continue
-        #         else:
-        #             multiply *= nums[j]
-        #     ret.append(multiply)
+        #         carry *= nums[j]
+        #     answer += [carry]
+        # return answer
 
-        # return ret
-
-        ret = []
-        fix = 1
+        # making prefix
+        pre = [1] * len(nums)
+        for i in range(1, len(nums)):
+            pre[i] = pre[i-1] * nums[i-1]
+        # making postfix
+        post = [1] * len(nums)
+        for i in range(len(nums)-2, -1, -1):
+            post[i] = post[i+1] * nums[i+1]
+        # combining
+        answer = []
         for i in range(len(nums)):
-            ret.append(fix)
-            fix *= nums[i]
-        fix = 1
-        for i in range(len(nums) - 1, -1, -1):
-            ret[i] *= fix
-            fix *= nums[i]
-        return ret
-                
+            answer += [pre[i]*post[i]]
+        return answer
