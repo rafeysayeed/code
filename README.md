@@ -1,1 +1,1 @@
-# LeetCode-Solutions
+# A collection of speed programming questions
