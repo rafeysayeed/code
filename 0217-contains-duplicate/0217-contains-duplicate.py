@@ -4,8 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        nums.sort()
-        for i in range(len(nums)-1):
-            if nums[i] == nums[i+1]:
-                return True
+        numSet = set(nums)
+        if len(numSet) != len(nums):
+            return True
         return False
