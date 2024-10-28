@@ -4,11 +4,19 @@ class Solution(object):
         :type nums: List[int]
         :type target: int
         :rtype: List[int]
+        target = a + b
+        a = target - b
+        b = target - a
+        target = (target - b) + (target - a)
         """
-        hashm = {}
-        for i in range(len(nums)):
-            diff = target - nums[i]
-            if diff in hashm:
-                return [hashm[diff], i]
+        n = nums
+        t = target
+        d = 0 # difference
+        hd = {}
+        for i in range(len(n)):
+            d = t - n[i]
+            b = t - d
+            if b in hd:
+                return [i, hd[b]]
             else:
-                hashm[nums[i]] = i
+                hd[d] = i
