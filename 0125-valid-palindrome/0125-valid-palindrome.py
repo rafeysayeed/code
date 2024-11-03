@@ -4,8 +4,11 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        refinedString = ""
-        for i in s:
-            if i.isalnum():
-                refinedString += i.lower()
-        return refinedString == refinedString[::-1]
+        import re
+
+        def rm(s):
+            return re.sub(r'[^a-zA-Z0-9]', '', s)
+        s = rm(s)
+        s = s.lower()
+        
+        return s == s[::-1]
