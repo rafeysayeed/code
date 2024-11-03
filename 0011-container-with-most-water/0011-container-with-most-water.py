@@ -4,25 +4,19 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        # max_area = 0
-        # for i in range(0, len(height)):
+        l, b, mw = 0, 0, 0
+        # for i in range(len(height)):
         #     for j in range(i+1, len(height)):
-        #         x = j-i
-        #         y = min(height[i], height[j])
-        #         if max_area < x*y:
-        #             max_area = x*y
-        # return max_area
-
-        max_area = 0
-        left = 0
-        right = len(height) - 1
-        while left != right:
-            x = right - left
-            y = min(height[left], height[right])
-            if max_area < x * y:
-                max_area = x * y
-            if height[left] >= height[right]:
-                right -= 1
+        #         l = min(height[i], height[j])
+        #         b = j - i
+        #         mw = max(mw, l*b)
+        le, r = 0, len(height)-1
+        while le < r:
+            l = min(height[le], height[r])
+            b = r - le
+            mw = max(mw, l*b)
+            if height[le] < height[r]:
+                le += 1
             else:
-                left += 1
-        return max_area
+                r -= 1
+        return mw
