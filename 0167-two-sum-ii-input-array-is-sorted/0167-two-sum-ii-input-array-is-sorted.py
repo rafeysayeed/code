@@ -5,13 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        hashMap = {}
-        i = 0
-        while i < len(numbers):
-            diff = target - numbers[i]
-            if diff in hashMap.keys():
-                return [hashMap[diff]+1, i+1]
+        h = {} # hashmap
+        for i in range(len(numbers)):
+            a = target - numbers[i]
+            # b = target - a
+            if a in h:
+                return [h[a]+1, i+1]
             else:
-                hashMap[numbers[i]] = i
-            i += 1
-        return []
+                h[numbers[i]] = i
+        
