@@ -11,7 +11,7 @@ class Solution(object):
             return True
         elif nt==0 and ns:
             return False
-        while j<nt:
+        while i<ns and j<nt:
             if s[i]==t[j]:
                 i+=1
                 j+=1
